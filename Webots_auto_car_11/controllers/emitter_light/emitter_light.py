@@ -65,8 +65,8 @@ while supervisor.step(timestep) != -1:
     except OSError as e:
         continue
     message="bos"
-    supervisor.getDevice("red").set(1)
-    supervisor.getDevice("green").set(0)
+    # supervisor.getDevice("red").set(1)
+    # supervisor.getDevice("green").set(0)
         
     # if i == 0:
       # new_value = [2.5, 0, 0]

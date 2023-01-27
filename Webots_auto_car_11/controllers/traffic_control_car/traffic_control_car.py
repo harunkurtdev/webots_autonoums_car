@@ -89,13 +89,16 @@ while driver.step() != -1:
             crusingSpeed -= 0.5
             break
         if (key==Keyboard.RIGHT):
-            streeringAngle += 0.05
+            streeringAngle += 0.01
             break
         if (key==Keyboard.LEFT):
-            streeringAngle -= 0.05
+            streeringAngle -= 0.01
             break
         if (key==ord("S")):
             crusingSpeed =0
+            break
+        if (key==ord("D")):
+            streeringAngle =0
             break
     # print(streeringAngle,crusingSpeed)
     driver.setSteeringAngle(streeringAngle)

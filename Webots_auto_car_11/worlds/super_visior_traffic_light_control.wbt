@@ -121,11 +121,11 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.3120870241638767 0.04718808858936389 0.9488809059327825 2.8565927325586733
-  position 25.70704940391788 48.063203373202384 13.154008579365911
+  orientation -0.16014931975767535 0.13606154538479381 0.9776704205654663 1.9206468432288715
+  position 14.959185873459061 35.479886596267995 10.42794903124407
   near 1
   follow "vehicle"
-  followType "Pan and Tilt Shot"
+  followType "Mounted Shot"
   followSmoothness 0
 }
 TexturedBackground {
@@ -380,7 +380,7 @@ StraightRoadSegment {
   length 30
 }
 Robot {
-  translation -31.055 44.6732 1
+  translation -33.555 44.8432 0.06
   children [
     Receiver {
       translation 1.09 0 0.87
@@ -492,6 +492,119 @@ Robot {
   customData "green"
   window "<none>"
 }
+Robot {
+  translation -55.955 55.7332 0.02
+  children [
+    Receiver {
+      translation 1.09 0 0.87
+    }
+    LED {
+      translation 0.24 0 2.625
+      scale 1.61898 1.61898 1.61898
+      children [
+        Group {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.270588 0
+              }
+              geometry Box {
+                size 0.05 0.05 0.05
+              }
+            }
+            PointLight {
+              attenuation 0 0 1
+              color 0 0 0
+              location 0 0.3 0
+              on FALSE
+            }
+          ]
+        }
+      ]
+      name "red"
+      translationStep 1
+      rotationStep 0.261806
+    }
+    LED {
+      translation 0.22 0 2.37
+      scale 1.3885 1.3885 1.3885
+      children [
+        Group {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 1 0
+              }
+              geometry Box {
+                size 0.05 0.05 0.05
+              }
+            }
+            PointLight {
+              attenuation 0 0 1
+              color 0 0 0
+              location 0 0.3 0
+              on FALSE
+            }
+          ]
+        }
+      ]
+      name "yellow"
+      translationStep 1
+      rotationStep 0.261806
+      color [
+        1 1 0
+      ]
+    }
+    LED {
+      translation 0.22 0 2.15
+      scale 1.29714 1.29714 1.29714
+      children [
+        Group {
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0
+                emissiveColor 0 1 0
+              }
+              geometry Box {
+                size 0.05 0.05 0.05
+              }
+            }
+            PointLight {
+              attenuation 0 0 1
+              color 0 1 0
+              location 0 0.3 0
+            }
+          ]
+        }
+      ]
+      name "green"
+      translationStep 1
+      rotationStep 0.261806
+      color [
+        0 1 0
+      ]
+    }
+    Pole {
+      slot [
+        TrafficLight {
+          lamp_geometry TrafficLightStandardLampGeometry {
+          }
+        }
+      ]
+    }
+  ]
+  name "generic traffic light(4)"
+  model "generic traffic light"
+  controller "emitter_light"
+  controllerArgs [
+    "10"
+    "10"
+    "r"
+  ]
+  customData "green"
+  window "<none>"
+}
 RoadIntersection {
   translation -45 45 0.02
   rotation 0 0 1 0.785398
@@ -528,7 +641,7 @@ GenericTrafficLight {
   name "generic traffic light(1)"
   greenTime 10
   redTime 5
-  state "green"
+  state "red"
 }
 StraightRoadSegment {
   translation -45 25.5 0.02
@@ -721,35 +834,35 @@ CurvedRoadSegment {
   curvatureRadius 40.5
 }
 BmwX5 {
-  hidden position_0_0 8.392357598624347e-11
-  hidden position2_0_0 -0.007206912590067969
-  hidden position_0_1 -8.392493790172024e-11
-  hidden position2_0_1 -0.007272976823570903
-  hidden position_0_2 -0.13033381218031262
-  hidden position_0_3 -0.13086340139113853
-  hidden position_0_9 3.6069581746247487e-07
-  hidden linearVelocity_0 8.701325250708437e-09 -2.859737323586444e-10 -4.050437491969206e-08
-  hidden angularVelocity_0 1.0842529218742416e-09 3.297731795111129e-08 -7.717875192593232e-15
+  hidden position_0_0 2.0476354412297183e-11
+  hidden position2_0_0 170.90788608337743
+  hidden position_0_1 -1.938979601819015e-11
+  hidden position2_0_1 170.9751654903339
+  hidden position_0_2 170.87678559284328
+  hidden position_0_3 170.9525432986499
+  hidden position_0_9 8.282257608493637e-07
+  hidden linearVelocity_0 0.0002711877392753598 -4.127522754325776e-06 -0.0011263619574870553
+  hidden angularVelocity_0 9.861849556438237e-06 0.0006479282400354242 3.3721847951592145e-11
   hidden translation_1 0 0 0
-  hidden rotation_1 1 -4.158583592443422e-11 -1.1410925649817402e-08 0.007424591127629868
-  hidden linearVelocity_1 6.771994164235205e-09 -2.2269156849475204e-10 3.7661884735964314e-10
-  hidden angularVelocity_1 9.77422563309125e-10 2.972749098468383e-08 -6.6612167595083736e-15
+  hidden rotation_1 1 -9.837836267003612e-12 1.4565267348211162e-11 5.02152019615588
+  hidden linearVelocity_1 0.00022346818452082543 -3.4011830237554734e-06 -6.877336469148719e-07
+  hidden angularVelocity_1 9.692600933765114e-06 0.0006368129263722529 2.6495135650460507e-11
   hidden translation_2 0 0 0
-  hidden rotation_2 -0.9999999999999998 -4.1584202791649815e-11 1.13230310340292e-08 0.007482676673693366
-  hidden linearVelocity_2 6.772018314755789e-09 -2.2270019516998991e-10 3.7662146638786633e-10
-  hidden angularVelocity_2 9.773948933896252e-10 2.97275061574133e-08 -6.010050403096155e-15
+  hidden rotation_2 -1 -9.2945474680377e-12 -1.288783894399593e-11 4.9542328105043785
+  hidden linearVelocity_2 0.00022346820199384393 -3.401167704803512e-06 -6.879721080108374e-07
+  hidden angularVelocity_2 9.692660032256121e-06 0.0006368129355613832 1.9768150307839338e-11
   hidden translation_3 0 0 0
-  hidden rotation_3 1 0 0 0.1399274993534997
-  hidden linearVelocity_3 7.421773549158155e-09 -2.4417389741244525e-10 -2.0321352697632032e-09
-  hidden angularVelocity_3 6.525573030425216e-10 1.9847636936275918e-08 -3.843511570375488e-15
+  hidden rotation_3 1 0 0 5.061996695357913
+  hidden linearVelocity_3 0.0002409629407728204 -3.667715060734393e-06 -4.8031387131885564e-05
+  hidden angularVelocity_3 9.798417854291675e-06 0.0006437627705203375 3.328303622547095e-11
   hidden translation_4 0 0 0
-  hidden rotation_4 -1 0 0 0.14045770338368052
-  hidden linearVelocity_4 7.421763816599753e-09 -2.4391946835670044e-10 -2.0321339173955856e-09
-  hidden angularVelocity_4 6.526206795123465e-10 1.9847586768415664e-08 -1.594353701442473e-14
-  hidden translation_26 -1.2320758280282007e-07 7.15080957558456e-07 -1.3829422540467817e-07
-  hidden rotation_26 0.7466598432279095 0 -0.6652060421485012 3.601028315304097e-07
-  translation 9.080930432889831 53.20863285388348 0.3169215540782335
-  rotation 0.0022469562813436984 -3.692666129694619e-05 0.9999974749087578 3.1087275319434573
+  hidden rotation_4 -1 0 0 4.986239604370681
+  hidden linearVelocity_4 0.000240962928048025 -3.6675850851725913e-06 -4.8031625752558813e-05
+  hidden angularVelocity_4 9.79843542393503e-06 0.0006437627311363185 3.330595189907636e-11
+  hidden translation_26 -2.8290763820493225e-07 1.6419611134077527e-06 -3.175493898943671e-07
+  hidden rotation_26 0.7466598432279096 0 -0.6652060421485012 8.280541890531721e-07
+  translation 8.890796780214213 53.12000195142959 0.31701401591266987
+  rotation 0.002219671914762744 -1.689911908087287e-05 0.9999975363824706 3.1263640257075886
   controller "traffic_control_car"
   sensorsSlotFront [
     Emitter {
@@ -812,7 +925,6 @@ Robot {
             Shape {
               appearance PBRAppearance {
                 baseColor 1 0.270588 0
-                emissiveColor 1 0 0
               }
               geometry Box {
                 size 0.05 0.05 0.05
@@ -820,8 +932,9 @@ Robot {
             }
             PointLight {
               attenuation 0 0 1
-              color 1 0 0
+              color 0 0 0
               location 0 0.3 0
+              on FALSE
             }
           ]
         }
@@ -869,6 +982,7 @@ Robot {
             Shape {
               appearance PBRAppearance {
                 baseColor 0 1 0
+                emissiveColor 0 1 0
               }
               geometry Box {
                 size 0.05 0.05 0.05
@@ -878,7 +992,6 @@ Robot {
               attenuation 0 0 1
               color 0 1 0
               location 0 0.3 0
-              on FALSE
             }
           ]
         }
@@ -915,7 +1028,7 @@ GenericTrafficLight {
   name "generic traffic light(2)"
   greenTime 15
   redTime 5
-  state "orange"
+  state "green"
 }
 CrossRoadsTrafficLight {
   translation 45 -45 0
@@ -1370,7 +1483,7 @@ SpeedLimitSign {
 }
 TrafficCone {
   translation -50.817355182774314 33.90679997857168 -0.004076718672611224
-  rotation -0.00027316370314071583 0.9999998490493245 0.00047674198439147354 0.01369079276105795
+  rotation -0.0002731637031407939 0.9999998490493245 0.0004767419843914674 0.013690792761057948
   physics Physics {
     density -1
     mass 1
@@ -1378,7 +1491,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -53.344755182774314 33.90679997857168 -0.004076718672611224
-  rotation -0.00027316370314071583 0.9999998490493245 0.00047674198439147354 0.01369079276105795
+  rotation -0.0002731637031407939 0.9999998490493245 0.0004767419843914674 0.013690792761057948
   name "traffic cone(1)"
   physics Physics {
     density -1
@@ -1387,7 +1500,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -48.16815518277431 34.00949997857168 -0.004076718672611224
-  rotation -0.00027316370314062395 0.9999998490493246 0.0004767419843914613 0.013690792761057948
+  rotation -0.0002731637031406849 0.9999998490493245 0.0004767419843914531 0.013690792761057948
   name "traffic cone(2)"
   physics Physics {
     density -1
@@ -1396,7 +1509,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -45.10425447495252 26.354345206329075 -0.004076718672611224
-  rotation -0.00021751188953929006 0.9999707009048764 -0.007651798506775922 0.013691192027105958
+  rotation -0.000217511889539362 0.9999707009048763 -0.007651798506775875 0.013691192027105956
   name "traffic cone(3)"
   physics Physics {
     density -1
@@ -1405,7 +1518,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -45.56035447495251 33.908245206329084 -0.004076718672611224
-  rotation -0.0002175118895394613 0.9999707009048763 -0.007651798506770181 0.013691192027105956
+  rotation -0.0002175118895394176 0.9999707009048764 -0.007651798506770111 0.013691192027105958
   name "traffic cone(4)"
   physics Physics {
     density -1
@@ -1414,7 +1527,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -45.09525518277431 16.18319997857113 -0.004076718672611224
-  rotation -0.0002731637031401791 0.9999998490493244 0.0004767419843251341 0.013690792761057955
+  rotation -0.000273163703140177 0.9999998490493244 0.000476741984325124 0.013690792761057951
   name "traffic cone(5)"
   physics Physics {
     density -1
@@ -1423,7 +1536,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -45.29575518277431 5.310339978571666 -0.004076718672611224
-  rotation -0.0002731637031401938 0.9999998490493245 0.00047674198432858086 0.01369079276105795
+  rotation -0.0002731637031402028 0.9999998490493245 0.00047674198432856373 0.013690792761057948
   name "traffic cone(6)"
   physics Physics {
     density -1
@@ -1432,7 +1545,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -44.78215518277431 -7.339150021428334 -0.004076718672611224
-  rotation -0.0002731637031401938 0.9999998490493245 0.00047674198432858086 0.01369079276105795
+  rotation -0.0002731637031402028 0.9999998490493245 0.00047674198432856373 0.013690792761057948
   name "traffic cone(7)"
   physics Physics {
     density -1
@@ -1441,7 +1554,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 33.97404481722569 -53.760800021428324 -0.004076718672611224
-  rotation -0.00027316370314062395 0.9999998490493246 0.0004767419843914613 0.013690792761057948
+  rotation -0.0002731637031406849 0.9999998490493245 0.0004767419843914531 0.013690792761057948
   name "traffic cone(8)"
   physics Physics {
     density -1
@@ -1450,7 +1563,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 33.96964481722569 -51.43500002142832 -0.004076718672611224
-  rotation -0.00027316370314060963 0.9999998490493245 0.0004767419843914611 0.01369079276105795
+  rotation -0.0002731637031407303 0.9999998490493245 0.0004767419843914571 0.013690792761057948
   name "traffic cone(9)"
   physics Physics {
     density -1
@@ -1459,7 +1572,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 33.95354481722569 -48.95440002142832 -0.004076718672611224
-  rotation -0.0002731637031406123 0.9999998490493245 0.0004767419843914937 0.01369079276105795
+  rotation -0.0002731637031407541 0.9999998490493245 0.0004767419843914875 0.013690792761057948
   name "traffic cone(10)"
   physics Physics {
     density -1
@@ -1468,7 +1581,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 33.71714481722569 -45.72340002142832 -0.004076718672611224
-  rotation -0.00027316370314062395 0.9999998490493246 0.0004767419843914613 0.013690792761057948
+  rotation -0.0002731637031406849 0.9999998490493245 0.0004767419843914531 0.013690792761057948
   name "traffic cone(11)"
   physics Physics {
     density -1
@@ -1477,7 +1590,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -35.36085518277431 -30.23390002142887 -0.004076718672611224
-  rotation -0.0002731637031401757 0.9999998490493244 0.0004767419843248981 0.013690792761057951
+  rotation -0.0002731637031402268 0.9999998490493245 0.0004767419843248906 0.013690792761057948
   name "traffic cone(12)"
   physics Physics {
     density -1
@@ -1486,7 +1599,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -42.32475518277431 -18.60840002142887 -0.004076718672611224
-  rotation -0.0002731637031401696 0.9999998490493245 0.000476741984324918 0.01369079276105795
+  rotation -0.00027316370314016576 0.9999998490493245 0.00047674198432491317 0.013690792761057948
   name "traffic cone(13)"
   physics Physics {
     density -1
@@ -1495,7 +1608,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -26.685755182774393 -38.23720002142832 -0.004076718672611224
-  rotation -0.00027316370314078766 0.9999998490493244 0.0004767419843942969 0.013690792761057948
+  rotation -0.0002731637031407587 0.9999998490493246 0.0004767419843943034 0.013690792761057946
   name "traffic cone(14)"
   physics Physics {
     density -1
@@ -1504,7 +1617,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -13.72645518277476 -43.78640002142832 -0.004076718672611224
-  rotation -0.0002731637031407939 0.9999998490493245 0.0004767419843907441 0.01369079276105795
+  rotation -0.00027316370314075774 0.9999998490493245 0.00047674198439076013 0.013690792761057948
   name "traffic cone(15)"
   physics Physics {
     density -1
@@ -1513,7 +1626,7 @@ TrafficCone {
 }
 TrafficCone {
   translation -1.3851451827745893 -44.86730002142832 -0.004076718672611196
-  rotation -0.0002731637031407516 0.9999998490493244 0.0004767419843970509 0.013690792761057948
+  rotation -0.00027316370314073714 0.9999998490493246 0.0004767419843970474 0.013690792761057946
   name "traffic cone(16)"
   physics Physics {
     density -1
@@ -1522,7 +1635,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 11.217444817225239 -44.89550002142832 -0.004076718672611224
-  rotation -0.0002731637031407939 0.9999998490493245 0.0004767419843907441 0.01369079276105795
+  rotation -0.00027316370314075774 0.9999998490493245 0.00047674198439076013 0.013690792761057948
   name "traffic cone(17)"
   physics Physics {
     density -1
@@ -1531,7 +1644,7 @@ TrafficCone {
 }
 TrafficCone {
   translation 22.153044817225606 -44.81520002142832 -0.004076718672611224
-  rotation -0.00027316370314083976 0.9999998490493244 0.000476741984394284 0.013690792761057948
+  rotation -0.0002731637031407902 0.9999998490493246 0.0004767419843942846 0.013690792761057946
   name "traffic cone(18)"
   physics Physics {
     density -1
@@ -1580,7 +1693,7 @@ HighwayPole {
 }
 OilBarrel {
   translation -110.31684 -66.875162 0.5998773750000002
-  rotation -7.096054273988099e-19 7.446371296737618e-19 1 3.14159
+  rotation -2.991675255129991e-19 6.612891171535867e-19 1 3.14159
   height 1.2
   radius 0.4
   physics Physics {
@@ -1592,7 +1705,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -107.04991 -33.037806 0.5998773750000002
-  rotation -1.2548030933876184e-19 3.650229438213953e-19 1 3.14159
+  rotation -4.515606820187856e-19 5.065064071183177e-19 1 3.14159
   name "oil barrel(1)"
   height 1.2
   radius 0.4
@@ -1605,7 +1718,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -103.169 -54.770003 0.5998773750000002
-  rotation -1.2548030933876184e-19 3.650229438213953e-19 1 3.14159
+  rotation -4.515606820187856e-19 5.065064071183177e-19 1 3.14159
   name "oil barrel(2)"
   height 1.2
   radius 0.4
@@ -1618,7 +1731,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -45 -105.104 0.599877375
-  rotation 8.044419611949035e-19 3.232544138194234e-19 -0.9999999999999999 1.5707953071795862
+  rotation 8.294346215801246e-19 5.062484271002226e-19 -0.9999999999999999 1.5707953071795862
   name "oil barrel(3)"
   height 1.2
   radius 0.4
@@ -1631,7 +1744,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -21.3988 -45.2699 0.5998773750000002
-  rotation -2.540677351588061e-19 1.4682567689501862e-18 -1 1.1781
+  rotation 6.609734329549326e-19 5.685526395848175e-19 -1 1.1781
   name "oil barrel(4)"
   height 1.2
   radius 0.4
@@ -1644,7 +1757,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -22.9161 -45.3401 0.5998773750000002
-  rotation 7.12997497211088e-20 6.838424864344634e-19 1 1.9634953071795869
+  rotation 2.6739164433934414e-19 8.027809938606718e-19 1 1.9634953071795869
   name "oil barrel(5)"
   height 1.2
   radius 0.4
@@ -1657,7 +1770,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -22.1326 -45.7229 0.5998773750000002
-  rotation 0.0032697187425463126 -0.0032651938474875805 -0.9999893236672495 2.3807844734596603e-16
+  rotation 0.005025701170775371 -0.004521192018133151 -0.9999771503141845 2.424537279436686e-16
   name "oil barrel(6)"
   height 1.2
   radius 0.4
@@ -1670,7 +1783,7 @@ OilBarrel {
 }
 OilBarrel {
   translation -48.6853 20.1904 0.599877375
-  rotation 5.960382687149949e-19 6.663220309041753e-19 1 3.01069
+  rotation 4.1252921159874537e-19 4.666371727256867e-19 1 3.01069
   name "oil barrel(7)"
   height 1.2
   radius 0.4
